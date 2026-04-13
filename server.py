@@ -322,8 +322,25 @@ def _insert_row(connection_string: str, table_name: str, data: dict) -> dict:
         conn.close()
 
 
+def _validate_output_path(output_path: str) -> Optional[str]:
+    """Validate output file path against traversal attacks."""
+    blocked = ["/etc/", "/var/", "/proc/", "/sys/", "/dev/", ".."]
+    for pattern in blocked:
+        if pattern in output_path:
+            return f"Access denied: path contains blocked pattern '{pattern}'"
+    real = os.path.realpath(output_path)
+    parent = os.path.dirname(real)
+    if not os.path.isdir(parent):
+        return f"Directory does not exist: {parent}"
+    return None
+
+
 def _export_to_csv(connection_string: str, sql: str, output_path: str) -> dict:
     """Execute a query and export results to CSV."""
+    path_err = _validate_output_path(output_path)
+    if path_err:
+        return {"error": path_err}
+
     result = _execute_query(connection_string, sql)
     if result.get("status") != "ok":
         return result
