@@ -1,0 +1,10 @@
+name: database-universal-mcp
+description: "MEOK AI Labs — Connect to SQLite, PostgreSQL, or MySQL databases from AI agents."
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/database-universal-mcp
+license: MIT
+categories: [Database, Developer Tools]
+tags: [database, sql, nosql, database-management, query-builder, orm]
+runtime: python
+entrypoint: server.py
