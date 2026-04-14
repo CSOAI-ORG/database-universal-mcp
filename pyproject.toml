@@ -8,7 +8,7 @@ description = "MEOK AI Labs — database-universal-mcp"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
-dependencies = ["mcp>=1.0.0"]
+dependencies = ["mcp>=1.0.0", "psycopg2-binary>=2.9.0", "PyMySQL>=1.0.0", ]
 [project.urls]
 Homepage = "https://meok.ai"
 [tool.hatch.build.targets.wheel]

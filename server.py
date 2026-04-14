@@ -12,6 +12,11 @@ Optional: pip install psycopg2-binary mysql-connector-python
 Run:     python server.py
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import csv
 import io
 import json
@@ -372,7 +377,7 @@ mcp = FastMCP(
 
 
 @mcp.tool()
-def query_sql(connection_string: str, sql: str, allow_write: bool = False) -> dict:
+def query_sql(connection_string: str, sql: str, allow_write: bool = False, api_key: str = "") -> dict:
     """Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL.
 
     Connection string examples:
@@ -385,6 +390,10 @@ def query_sql(connection_string: str, sql: str, allow_write: bool = False) -> di
         sql: SQL query to execute
         allow_write: Set True for INSERT/UPDATE/DELETE (safety guard)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -398,12 +407,16 @@ def query_sql(connection_string: str, sql: str, allow_write: bool = False) -> di
 
 
 @mcp.tool()
-def list_tables(connection_string: str) -> dict:
+def list_tables(connection_string: str, api_key: str = "") -> dict:
     """List all tables in a database.
 
     Args:
         connection_string: Database connection URI
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -414,7 +427,7 @@ def list_tables(connection_string: str) -> dict:
 
 
 @mcp.tool()
-def describe_table(connection_string: str, table_name: str) -> dict:
+def describe_table(connection_string: str, table_name: str, api_key: str = "") -> dict:
     """Describe a table's schema: column names, types, nullability, defaults,
     primary keys, and row count.
 
@@ -422,6 +435,10 @@ def describe_table(connection_string: str, table_name: str) -> dict:
         connection_string: Database connection URI
         table_name: Name of the table to describe
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -432,7 +449,7 @@ def describe_table(connection_string: str, table_name: str) -> dict:
 
 
 @mcp.tool()
-def insert_row(connection_string: str, table_name: str, data: dict) -> dict:
+def insert_row(connection_string: str, table_name: str, data: dict, api_key: str = "") -> dict:
     """Insert a single row into a table. Column names and values are passed
     as a dictionary.
 
@@ -441,6 +458,10 @@ def insert_row(connection_string: str, table_name: str, data: dict) -> dict:
         table_name: Target table name
         data: Dictionary of column_name -> value pairs
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -451,7 +472,7 @@ def insert_row(connection_string: str, table_name: str, data: dict) -> dict:
 
 
 @mcp.tool()
-def export_to_csv(connection_string: str, sql: str, output_path: str = "") -> dict:
+def export_to_csv(connection_string: str, sql: str, output_path: str = "", api_key: str = "") -> dict:
     """Execute a SELECT query and export results to a CSV file.
 
     Args:
@@ -459,6 +480,10 @@ def export_to_csv(connection_string: str, sql: str, output_path: str = "") -> di
         sql: SELECT query to execute
         output_path: Path for the output CSV (default: temp file)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}

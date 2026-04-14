@@ -1,10 +1,57 @@
 name: database-universal-mcp
-description: "MEOK AI Labs — Connect to SQLite, PostgreSQL, or MySQL databases from AI agents."
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/database-universal-mcp
-license: MIT
-categories: [Database, Developer Tools]
-tags: [database, sql, nosql, database-management, query-builder, orm]
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: query_sql
+  description: Execute a SQL query against a database. Supports SQLite, PostgreSQL,
+    and MySQL.
+  parameters:
+  - name: connection_string
+    type: string
+    required: true
+  - name: sql
+    type: string
+    required: true
+  - name: allow_write
+    type: boolean
+    required: false
+- name: list_tables
+  description: List all tables in a database.
+  parameters:
+  - name: connection_string
+    type: string
+    required: true
+- name: describe_table
+  description: 'Describe a table''s schema: column names, types, nullability, defaults,'
+  parameters:
+  - name: connection_string
+    type: string
+    required: true
+  - name: table_name
+    type: string
+    required: true
+- name: insert_row
+  description: Insert a single row into a table. Column names and values are passed
+  parameters:
+  - name: connection_string
+    type: string
+    required: true
+  - name: table_name
+    type: string
+    required: true
+  - name: data
+    type: object
+    required: true
+- name: export_to_csv
+  description: Execute a SELECT query and export results to a CSV file.
+  parameters:
+  - name: connection_string
+    type: string
+    required: true
+  - name: sql
+    type: string
+    required: true
+  - name: output_path
+    type: string
+    required: false

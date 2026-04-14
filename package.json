@@ -1,7 +1,7 @@
 {
   "name": "database-universal-mcp",
   "version": "1.0.0",
-  "description": "MEOK AI Labs — database universal MCP Server",
+  "description": "MEOK AI Labs \u2014 database universal MCP Server",
   "main": "server.py",
   "mcp": {
     "name": "database universal",
@@ -9,10 +9,26 @@
     "homepage": "https://meok.ai",
     "repository": "https://github.com/CSOAI-ORG/database-universal-mcp",
     "runtime": "python",
-    "tags": ["mcp", "mcp-server", "meok-ai-labs", "ai-tools"]
+    "tags": [
+      "mcp",
+      "mcp-server",
+      "meok-ai-labs",
+      "ai-tools"
+    ]
   },
-  "keywords": ["mcp", "mcp-server", "meok-ai-labs"],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "meok-ai-labs"
+  ],
   "author": "MEOK AI Labs <nicholas@meok.ai>",
   "license": "MIT",
-  "repository": {"type": "git", "url": "https://github.com/CSOAI-ORG/database-universal-mcp"}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/database-universal-mcp"
+  },
+  "dependencies": {
+    "psycopg2-binary": "^1.0.0",
+    "PyMySQL": "^1.0.0"
+  }
 }

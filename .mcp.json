@@ -1,24 +1,108 @@
 {
   "name": "database-universal-mcp",
-  "description": "MEOK AI Labs \u2014 Connect to SQLite, PostgreSQL, or MySQL databases from AI agents.",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/database-universal-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
   "tools": [
-    "query_sql",
-    "list_tables",
-    "describe_table",
-    "insert_row",
-    "export_to_csv"
-  ],
-  "categories": [
-    "Database",
-    "Developer Tools"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "query_sql",
+      "description": "Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "connection_string": {
+            "type": "string"
+          },
+          "sql": {
+            "type": "string"
+          },
+          "allow_write": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "connection_string",
+          "sql"
+        ]
+      }
+    },
+    {
+      "name": "list_tables",
+      "description": "List all tables in a database.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "connection_string": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "connection_string"
+        ]
+      }
+    },
+    {
+      "name": "describe_table",
+      "description": "Describe a table's schema: column names, types, nullability, defaults,",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "connection_string": {
+            "type": "string"
+          },
+          "table_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "connection_string",
+          "table_name"
+        ]
+      }
+    },
+    {
+      "name": "insert_row",
+      "description": "Insert a single row into a table. Column names and values are passed",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "connection_string": {
+            "type": "string"
+          },
+          "table_name": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "connection_string",
+          "table_name",
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "export_to_csv",
+      "description": "Execute a SELECT query and export results to a CSV file.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "connection_string": {
+            "type": "string"
+          },
+          "sql": {
+            "type": "string"
+          },
+          "output_path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "connection_string",
+          "sql"
+        ]
+      }
+    }
+  ]
 }
