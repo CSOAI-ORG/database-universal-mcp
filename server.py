@@ -113,8 +113,7 @@ def _get_connection(connection_string: str):
             port=parsed.port or 5432,
             user=parsed.username or "postgres",
             password=parsed.password or "",
-            dbname=parsed.path.lstrip("/") or "postgres",
-        )
+            dbname=parsed.path.lstrip("/") or "postgres")
         conn.autocommit = True
         return conn, "postgresql"
 
@@ -128,8 +127,7 @@ def _get_connection(connection_string: str):
             port=parsed.port or 3306,
             user=parsed.username or "root",
             password=parsed.password or "",
-            database=parsed.path.lstrip("/") or "",
-        )
+            database=parsed.path.lstrip("/") or "")
         conn.autocommit = True
         return conn, "mysql"
 
@@ -167,7 +165,7 @@ def _execute_query(connection_string: str, sql: str, params: Optional[list] = No
                 for i, col in enumerate(columns):
                     val = row[i]
                     # Make JSON-serializable
-                    if isinstance(val, (datetime,)):
+                    if isinstance(val, (datetime)):
                         val = val.isoformat()
                     elif isinstance(val, bytes):
                         val = val.hex()[:100] + "..." if len(val) > 50 else val.hex()
@@ -249,7 +247,7 @@ def _describe_table(connection_string: str, table_name: str) -> dict:
                 FROM information_schema.columns
                 WHERE table_name = %s AND table_schema = 'public'
                 ORDER BY ordinal_position
-            """, (table_name,))
+            """, (table_name))
             for row in cursor.fetchall():
                 columns.append({
                     "name": row[0],
@@ -370,8 +368,7 @@ def _export_to_csv(connection_string: str, sql: str, output_path: str) -> dict:
 # ---------------------------------------------------------------------------
 mcp = FastMCP(
     "Universal Database MCP",
-    instructions="Database connector for SQLite, PostgreSQL, and MySQL. Query data, explore schema, insert rows, and export to CSV. By MEOK AI Labs.",
-)
+    instructions="Database connector for SQLite, PostgreSQL, and MySQL. Query data, explore schema, insert rows, and export to CSV. By MEOK AI Labs.")
 
 
 @mcp.tool()
