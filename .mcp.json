@@ -1,6 +1,6 @@
 {
   "name": "database-universal-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Database connector for SQLite, PostgreSQL, and MySQL. Query data, explore schema, insert rows, and e",
   "version": "1.0.0",
   "tools": [
     {
