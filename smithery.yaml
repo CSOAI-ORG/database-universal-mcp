@@ -1,6 +1,6 @@
 name: database-universal-mcp
-description: Database connector for SQLite, PostgreSQL, and MySQL. Query data, explore
-  schema, insert rows, and e
+description: MCP server for database universal. Features query sql, list tables, describe
+  table. From MEOK AI Labs.
 version: 1.0.0
 tools:
 - name: query_sql

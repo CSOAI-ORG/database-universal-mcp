@@ -1,7 +1,7 @@
 {
   "name": "database-universal-mcp",
   "version": "1.0.0",
-  "description": "MEOK AI Labs \u2014 database universal MCP Server",
+  "description": "MCP server for database universal. Features query sql, list tables, describe table. From MEOK AI Labs.",
   "main": "server.py",
   "mcp": {
     "name": "database universal",
