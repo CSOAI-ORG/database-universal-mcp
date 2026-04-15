@@ -9,8 +9,16 @@ license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
 dependencies = ["mcp>=1.0.0", "psycopg2-binary>=2.9.0", "PyMySQL>=1.0.0", ]
+keywords = ["mcp", "ai", "meok", "database", "universal", "mcp/"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+]
 [project.urls]
 Homepage = "https://meok.ai"
+Repository = "https://github.com/CSOAI-ORG/database-universal-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
