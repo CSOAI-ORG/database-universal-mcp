@@ -1,0 +1,58 @@
+{
+  "name": "Universal Database MCP",
+  "description": "Database connector for SQLite, PostgreSQL, and MySQL. Query data, explore schema, insert rows, and export to CSV. By MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/database-universal-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "query_sql",
+      "description": "Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL."
+    },
+    {
+      "name": "list_tables",
+      "description": "List all tables in a database."
+    },
+    {
+      "name": "describe_table",
+      "description": "Describe a table's schema: column names, types, nullability, defaults,"
+    },
+    {
+      "name": "insert_row",
+      "description": "Insert a single row into a table. Column names and values are passed"
+    },
+    {
+      "name": "export_to_csv",
+      "description": "Execute a SELECT query and export results to a CSV file."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Data & Analytics",
+    "Developer Tools"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
