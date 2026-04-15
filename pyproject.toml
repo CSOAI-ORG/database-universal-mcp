@@ -22,3 +22,6 @@ Repository = "https://github.com/CSOAI-ORG/database-universal-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+database_universal_mcp = "server:main"
