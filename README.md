@@ -1,34 +1,38 @@
-# Database Universal MCP Server
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — Connect to SQLite, PostgreSQL, or MySQL databases for querying, schema exploration, and data export
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/database-universal-mcp)](https://github.com/CSOAI-ORG/database-universal-mcp/stargazers)
+
+# udatabaseU universalU mcp
+
+****
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/database-universal-mcp)](https://www.npmjs.com/package/@meok-ai/database-universal-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/database-universal-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install database-universal-mcp
-# Optional: pip install psycopg2-binary mysql-connector-python
+# or
+npm install -g @meok-ai/database-universal-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-python server.py
-```
+See the project repository for full documentation and examples.
 
-## Tools
+## Enterprise Support
 
-This server provides universal database access including:
-
-- Connect to SQLite, PostgreSQL, or MySQL databases
-- Execute SQL queries with safety guards
-- Explore database schema and table structure
-- Insert and update data
-- Export query results to CSV format
-
-## Authentication
-
-Free tier: 30 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
