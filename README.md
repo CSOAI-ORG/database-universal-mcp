@@ -1,3 +1,5 @@
+[![database-universal-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/database-universal-mcp)](https://github.com/CSOAI-ORG/database-universal-mcp/stargazers)
