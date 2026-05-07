@@ -1,3 +1,7 @@
+[![database-universal-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
+[![PyPI](https://img.shields.io/pypi/v/database-universal-mcp)](https://pypi.org/project/database-universal-mcp/)
+
 [![database-universal-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp)
 
 <div align="center">
