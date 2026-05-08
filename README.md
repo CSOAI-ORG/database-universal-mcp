@@ -1,45 +1,59 @@
-[![database-universal-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/database-universal-mcp)](https://pypi.org/project/database-universal-mcp/)
-
-[![database-universal-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/database-universal-mcp)
-
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/database-universal-mcp)](https://github.com/CSOAI-ORG/database-universal-mcp/stargazers)
+# Database Universal MCP
 
-# udatabaseU universalU mcp
+**MCP server for database universal mcp operations**
 
-****
-
-[![npm version](https://img.shields.io/npm/v/@meok-ai/database-universal-mcp)](https://www.npmjs.com/package/@meok-ai/database-universal-mcp)
+[![PyPI](https://img.shields.io/pypi/v/meok-database-universal-mcp)](https://pypi.org/project/meok-database-universal-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/database-universal-mcp/issues)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
+
+Database Universal MCP provides AI-powered tools via the Model Context Protocol (MCP).
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `query_sql` | Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL. |
+| `list_tables` | List all tables in a database. |
+| `describe_table` | Describe a table's schema: column names, types, nullability, defaults, |
+| `insert_row` | Insert a single row into a table. Column names and values are passed |
+| `export_to_csv` | Execute a SELECT query and export results to a CSV file. |
 
 ## Installation
 
 ```bash
-pip install database-universal-mcp
-# or
-npm install -g @meok-ai/database-universal-mcp
+pip install meok-database-universal-mcp
 ```
 
-## Quick Start
+## Usage with Claude Desktop
 
-See the project repository for full documentation and examples.
+Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
 
-## Enterprise Support
+```json
+{
+  "mcpServers": {
+    "database-universal-mcp": {
+      "command": "python",
+      "args": ["-m", "meok_database_universal_mcp.server"]
+    }
+  }
+}
+```
 
-- 📧 nicholas@csoai.org
-- 🌐 [CSOAI.org](https://csoai.org)
+## Usage with FastMCP
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+# This server exposes 5 tool(s) via MCP
+# See server.py for full implementation
+```
 
 ## License
 
-MIT © [CSOAI](https://csoai.org)
-<!-- mcp-name: io.github.CSOAI-ORG/database-universal-mcp -->
+MIT © [MEOK AI Labs](https://meok.ai)
