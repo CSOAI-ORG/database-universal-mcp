@@ -12,9 +12,16 @@ Optional: pip install psycopg2-binary mysql-connector-python
 Run:     python server.py
 """
 
-
 import sys, os
 from auth_middleware import check_access
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
 
 import csv
 import io
@@ -35,7 +42,6 @@ from mcp.server.fastmcp import FastMCP
 FREE_DAILY_LIMIT = 30
 _usage: dict[str, list[datetime]] = defaultdict(list)
 
-
 def _check_rate_limit(caller: str = "anonymous") -> Optional[str]:
     now = datetime.now()
     cutoff = now - timedelta(days=1)
@@ -44,7 +50,6 @@ def _check_rate_limit(caller: str = "anonymous") -> Optional[str]:
         return f"Free tier limit reached ({FREE_DAILY_LIMIT}/day). Upgrade to Pro: https://mcpize.com/database-universal-mcp/pro"
     _usage[caller].append(now)
     return None
-
 
 # ---------------------------------------------------------------------------
 # Safety: SQL query validation
@@ -57,7 +62,6 @@ _DANGEROUS_PATTERNS = [
     r"\bGRANT\b",
     r"\bREVOKE\b",
 ]
-
 
 def _validate_query(sql: str, allow_write: bool = False) -> Optional[str]:
     """Validate SQL query for safety. Returns error message if unsafe."""
@@ -74,7 +78,6 @@ def _validate_query(sql: str, allow_write: bool = False) -> Optional[str]:
             return f"Write operations require explicit allow_write=True for safety."
 
     return None
-
 
 # ---------------------------------------------------------------------------
 # Database connection helpers
@@ -125,14 +128,6 @@ def _get_connection(connection_string: str):
         try:
             import mysql.connector
 
-STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
-
-def _add_upgrade_tail(response, tier="free"):
-    """Append upgrade nudge to free-tier success responses."""
-    if isinstance(response, dict) and tier == "free":
-        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
-    return response
-
         except ImportError:
             raise ImportError("Install mysql-connector-python: pip install mysql-connector-python")
         conn = mysql.connector.connect(
@@ -146,7 +141,6 @@ def _add_upgrade_tail(response, tier="free"):
 
     else:
         raise ValueError(f"Unsupported database scheme: {scheme}. Use sqlite, postgresql, or mysql.")
-
 
 def _execute_query(connection_string: str, sql: str, params: Optional[list] = None) -> dict:
     """Execute a SQL query and return results."""
@@ -207,7 +201,6 @@ def _execute_query(connection_string: str, sql: str, params: Optional[list] = No
     finally:
         conn.close()
 
-
 def _list_tables(connection_string: str) -> dict:
     """List all tables in the database."""
     conn, db_type = _get_connection(connection_string)
@@ -227,7 +220,6 @@ def _list_tables(connection_string: str) -> dict:
         return {"status": "ok", "tables": tables, "count": len(tables), "db_type": db_type}
     finally:
         conn.close()
-
 
 def _describe_table(connection_string: str, table_name: str) -> dict:
     """Describe a table's schema."""
@@ -295,7 +287,6 @@ def _describe_table(connection_string: str, table_name: str) -> dict:
     finally:
         conn.close()
 
-
 def _insert_row(connection_string: str, table_name: str, data: dict) -> dict:
     """Insert a row into a table."""
     if not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', table_name):
@@ -332,7 +323,6 @@ def _insert_row(connection_string: str, table_name: str, data: dict) -> dict:
     finally:
         conn.close()
 
-
 def _validate_output_path(output_path: str) -> Optional[str]:
     """Validate output file path against traversal attacks."""
     blocked = ["/etc/", "/var/", "/proc/", "/sys/", "/dev/", ".."]
@@ -344,7 +334,6 @@ def _validate_output_path(output_path: str) -> Optional[str]:
     if not os.path.isdir(parent):
         return f"Directory does not exist: {parent}"
     return None
-
 
 def _export_to_csv(connection_string: str, sql: str, output_path: str) -> dict:
     """Execute a query and export results to CSV."""
@@ -375,14 +364,12 @@ def _export_to_csv(connection_string: str, sql: str, output_path: str) -> dict:
         "file_size_bytes": os.path.getsize(output_path),
     }
 
-
 # ---------------------------------------------------------------------------
 # MCP Server
 # ---------------------------------------------------------------------------
 mcp = FastMCP(
     "Universal Database MCP",
     instructions="Database connector for SQLite, PostgreSQL, and MySQL. Query data, explore schema, insert rows, and export to CSV. By MEOK AI Labs.")
-
 
 @mcp.tool()
 def query_sql(connection_string: str, sql: str, allow_write: bool = False, api_key: str = "") -> dict:
@@ -442,7 +429,6 @@ def query_sql(connection_string: str, sql: str, allow_write: bool = False, api_k
     except Exception as e:
         return {"error": str(e)}
 
-
 @mcp.tool()
 def list_tables(connection_string: str, api_key: str = "") -> dict:
     """List all tables in a database.
@@ -490,7 +476,6 @@ def list_tables(connection_string: str, api_key: str = "") -> dict:
         return _list_tables(connection_string)
     except Exception as e:
         return {"error": str(e)}
-
 
 @mcp.tool()
 def describe_table(connection_string: str, table_name: str, api_key: str = "") -> dict:
@@ -542,7 +527,6 @@ def describe_table(connection_string: str, table_name: str, api_key: str = "") -
     except Exception as e:
         return {"error": str(e)}
 
-
 @mcp.tool()
 def insert_row(connection_string: str, table_name: str, data: dict, api_key: str = "") -> dict:
     """Insert a single row into a table. Column names and values are passed
@@ -593,7 +577,6 @@ def insert_row(connection_string: str, table_name: str, data: dict, api_key: str
         return _insert_row(connection_string, table_name, data)
     except Exception as e:
         return {"error": str(e)}
-
 
 @mcp.tool()
 def export_to_csv(connection_string: str, sql: str, output_path: str = "", api_key: str = "") -> dict:
@@ -649,7 +632,6 @@ def export_to_csv(connection_string: str, sql: str, output_path: str = "", api_k
         return _export_to_csv(connection_string, sql, output_path)
     except Exception as e:
         return {"error": str(e)}
-
 
 def main():
     mcp.run()
