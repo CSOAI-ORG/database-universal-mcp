@@ -1,0 +1,32 @@
+# Database Universal MCP
+
+> Database connector for SQLite, PostgreSQL, and MySQL
+
+`database-universal-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install database-universal-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx database-universal-mcp
+```
+
+## Tools
+
+- `query_sql` — Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL.
+- `list_tables` — List all tables in a database.
+- `describe_table` — Describe a table's schema: column names, types, nullability, defaults,
+- `insert_row` — Insert a single row into a table. Column names and values are passed
+- `export_to_csv` — Execute a SELECT query and export results to a CSV file.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/database-universal-mcp
+- PyPI: https://pypi.org/project/database-universal-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
