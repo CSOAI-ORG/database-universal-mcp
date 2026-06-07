@@ -1,32 +1,36 @@
-# Database Universal MCP
-
-> Database connector for SQLite, PostgreSQL, and MySQL
-
-`database-universal-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# database-universal-mcp
+# **MCP server for database universal mcp operations**
 
 ## Install
-
 ```bash
 pip install database-universal-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx database-universal-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `query_sql` — Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL.
-- `list_tables` — List all tables in a database.
-- `describe_table` — Describe a table's schema: column names, types, nullability, defaults,
-- `insert_row` — Insert a single row into a table. Column names and values are passed
-- `export_to_csv` — Execute a SELECT query and export results to a CSV file.
+### `query_sql`
+Execute a SQL query against a database. Supports SQLite, PostgreSQL, and MySQL.
 
-## Links
+### `list_tables`
+List all tables in a database.
 
-- Source: https://github.com/CSOAI-ORG/database-universal-mcp
-- PyPI: https://pypi.org/project/database-universal-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `describe_table`
+Describe a table's schema: column names, types, nullability, defaults,
+
+### `insert_row`
+Insert a single row into a table. Column names and values are passed
+
+### `export_to_csv`
+Execute a SELECT query and export results to a CSV file.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

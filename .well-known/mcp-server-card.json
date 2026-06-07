@@ -1,0 +1,28 @@
+{
+  "name": "database-universal-mcp",
+  "title": "Database Universal Mcp",
+  "description": "MCP server for database universal. Features query sql, list tables, describe table. From MEOK AI Labs.",
+  "version": "1.0.9",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "query_sql"
+    },
+    {
+      "name": "list_tables"
+    },
+    {
+      "name": "describe_table"
+    },
+    {
+      "name": "insert_row"
+    },
+    {
+      "name": "export_to_csv"
+    }
+  ]
+}

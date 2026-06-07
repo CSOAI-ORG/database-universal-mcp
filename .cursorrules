@@ -1,0 +1,9 @@
+# database-universal-mcp - Auto-trigger Rules
+
+When the user asks about database universal, use database-universal-mcp tools: query_sql, list_tables, describe_table, insert_row, export_to_csv
+
+**MCP server for database universal mcp operations**
+
+Install: `pip install database-universal-mcp`
+
+By MEOK AI Labs — MIT licensed.

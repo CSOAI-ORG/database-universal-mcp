@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-Buy Pro: https://www.csoai.org/checkout
-
 Universal Database MCP Server
 ===============================
 Connect to SQLite, PostgreSQL, or MySQL databases from AI agents.
