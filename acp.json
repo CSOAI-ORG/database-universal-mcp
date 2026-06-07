@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "database-universal-mcp",
+    "description": "Database Universal MCP Server by MEOK AI Labs",
+    "version": "1.0.9",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "database-universal-mcp"
+      }
+    ],
+    "capabilities": [
+      "query_sql",
+      "list_tables",
+      "describe_table",
+      "insert_row",
+      "export_to_csv"
+    ]
+  }
+}

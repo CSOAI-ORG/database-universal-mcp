@@ -1,0 +1,68 @@
+{
+  "name": "database-universal-mcp",
+  "description": "Database Universal MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/database-universal-mcp.html",
+  "version": "1.0.9",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "query_sql",
+      "name": "Query Sql",
+      "description": "query_sql via database-universal-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "list_tables",
+      "name": "List Tables",
+      "description": "list_tables via database-universal-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "describe_table",
+      "name": "Describe Table",
+      "description": "describe_table via database-universal-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "insert_row",
+      "name": "Insert Row",
+      "description": "insert_row via database-universal-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "export_to_csv",
+      "name": "Export To Csv",
+      "description": "export_to_csv via database-universal-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
