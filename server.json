@@ -4,9 +4,8 @@
   "version": "1.0.12",
   "description": "Database Universal MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/database-universal-mcp",
-    "source": "https://github.com/CSOAI-ORG/database-universal-mcp"
+    "source": "github"
   },
   "packages": [
     {
