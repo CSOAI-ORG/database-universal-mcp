@@ -1,0 +1,117 @@
+{
+  "name": "Database Universal Mcp",
+  "version": "1.0.9",
+  "url": "https://mcp.meok.ai/database-universal-mcp/a2a",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "protocolVersion": "0.3.0",
+  "description": "MCP server for database universal. Features query sql, list tables, describe table. From MEOK AI Labs.",
+  "provider": {
+    "organization": "MEOK AI LABS",
+    "url": "https://meok.ai"
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "query_sql",
+      "name": "Query Sql",
+      "description": "Query Sql — a tool of the database-universal-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "list_tables",
+      "name": "List Tables",
+      "description": "List Tables — a tool of the database-universal-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "describe_table",
+      "name": "Describe Table",
+      "description": "Describe Table — a tool of the database-universal-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "insert_row",
+      "name": "Insert Row",
+      "description": "Insert Row — a tool of the database-universal-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "export_to_csv",
+      "name": "Export To Csv",
+      "description": "Export To Csv — a tool of the database-universal-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    }
+  ],
+  "documentationUrl": "https://meok.ai",
+  "x-meok": {
+    "mcp_name": "database-universal-mcp",
+    "verifier": "https://proofof.ai/verify",
+    "governed_by": "CSOAI 52-article charter"
+  }
+}
