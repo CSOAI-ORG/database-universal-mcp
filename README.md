@@ -1,4 +1,4 @@
-<!-- mcp-name: CSOAI-ORG/database-universal-mcp -->
+<!-- mcp-name: io.github.CSOAI-ORG/database-universal-mcp -->
 [![MCP Scorecard: 74/100](https://img.shields.io/badge/proofof.ai-74%2F100-5b21b6)](https://proofof.ai/scorecard/database-universal-mcp.html)
 
 # Database Universal MCP
@@ -113,3 +113,28 @@ Free tier: 10 calls/day per MCP. Pro tier (£79/mo): unlimited + cryptographical
 
 <!-- BUY-LADDER:END -->
 
+
+
+## Configuration
+
+Add to your `claude_desktop_config.json` (Claude Desktop) or your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "database-universal-mcp": {
+      "command": "uvx",
+      "args": ["database-universal-mcp"]
+    }
+  }
+}
+```
+
+Or: `pip install database-universal-mcp` then run the `database-universal-mcp` command (stdio transport).
+
+## Examples
+
+Once configured, ask your assistant, for example:
+- "Use `query_sql` to …"
+- "Use `list_tables` to …"
+- "Use `describe_table` to …"
